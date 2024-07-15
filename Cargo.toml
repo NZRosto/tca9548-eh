@@ -1,0 +1,26 @@
+[package]
+name = "tca9548-eh"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "An embedded-hal focused driver for the TCA9548 I2C multiplexer"
+homepage = "https://github.com/NZRosto/tca9548-eh"
+repository = "https://github.com/NZRosto/tca9548-eh"
+readme = "README.md"
+keywords = ["tca9548", "embedded", "gpio", "multiplexer", "embedded-hal"]
+categories = ["embedded", "no-std", "no-std::no-alloc", "hardware-support"]
+
+
+[lints]
+clippy.pedantic = "warn"
+
+
+[dependencies]
+embedded-hal = "1"
+portable-atomic = { version = "1", default-features = false, features = [
+    "require-cas",
+] }
+spin = { version = "0.9", default-features = false, features = [
+    "spin_mutex",
+    "portable_atomic",
+] }
